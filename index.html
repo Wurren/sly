@@ -1,0 +1,61 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+     <meta charset="utf-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+     <title>Sly</title>
+     <meta name="description" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="/css/example.css">
+     <!--[if lt IE 9]>
+     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+     <![endif]-->
+</head>
+<body>
+
+     <div class="container">
+          <div id="slider">
+               <div class="item one">
+                    <div class="caption">One</div>
+               </div>
+               <div class="item two">
+                    <div class="caption">Two</div>
+               </div>
+               <div class="item three">
+                    <div class="caption">Three</div>
+               </div>
+               <div class="item four">
+                    <div class="caption">Four</div>
+               </div>
+          </div>
+          <div class="slide-navigation"></div>
+          <div class="next-prev">
+               <a href="#" id="prev">&larr; prev</a>
+               <a href="#" id="next">Next &rarr;</a>
+          </div>
+     </div>
+
+
+<script src="/dist/sly.min.js"></script>
+<script>
+
+     // Its not here, but, always remember to have your DOM ready!
+     var sly = new Sly('slider');
+
+     document.getElementById('next').addEventListener('click', function(e) {
+          e.preventDefault();
+          sly.next();
+     });
+
+     document.getElementById('prev').addEventListener('click', function(e) {
+          e.preventDefault();
+          sly.prev();
+     });
+
+</script>
+
+</body>
+</html>
