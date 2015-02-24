@@ -140,10 +140,9 @@
 
           },
 
-
           updateNav: function() {
 
-               var current = this.currentLeft / 800;
+               var current = this.currentLeft / this.left;
                
                this.getNav().forEach(function(item, index) {
                     (index === current) ? item.className = 'active' : item.className = '';
