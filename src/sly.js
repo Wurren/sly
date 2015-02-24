@@ -8,14 +8,6 @@
 
 ;(function ( window, document, undefined ) {
 
-     var addEventListener = function(element, type, callback, ctxt) {
-          if (element.addEventListener) {
-               element.addEventListener(type, callback.bind(ctxt), false);
-          } else if (element.attachEvent) {
-               element.attachEvent('on' + type, callback.bind(ctxt));
-          }
-     };
-
      var Sly = function(el, options) {
           this.options = {
                bullets: options.bullets || false,
@@ -107,7 +99,8 @@
                     bullet.href = '#' + (index++);
                     bullet.innerHTML = (index++);
 
-                    addEventListener(bullet, 'click', that.navigate, that);
+                    // addEventListener(bullet, 'click', that.navigate, that);
+                    bullet.addEventListener('click', that.navigate.bind(that));
 
                     nav.appendChild(bullet);
 
