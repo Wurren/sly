@@ -99,7 +99,6 @@
                     bullet.href = '#' + (index++);
                     bullet.innerHTML = (index++);
 
-                    // addEventListener(bullet, 'click', that.navigate, that);
                     bullet.addEventListener('click', that.navigate.bind(that));
 
                     nav.appendChild(bullet);
