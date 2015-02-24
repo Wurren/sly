@@ -17,6 +17,7 @@
           this.children = this.getChildren();
           this.wrap = this.createWrap();
           this.length = 0;
+          this.left = 0;
           this.setup();
           this.init();
           return {
@@ -166,15 +167,14 @@
                     s         = wrapper.style,
                     anim      = 'all ' + this.options.speed + ' ease';
                
-               s.backgroundColor = '#000';
+               wrapper.className = 'wrapper';
                s.position = 'absolute';
                s.top = 0;
                s.left = 0;
                s.WebkitTransition = anim;
                s.MozTransition = anim;
                s.transition = anim;
-               wrapper.className = 'wrapper';
-
+               
                return wrapper;
 
           }
