@@ -21,7 +21,7 @@ Add your markup
 
 ```
 
-Add some CSS. The width of the slider can be whatever you want, its responsive! Make sure that the slider and slides have a set height though! ( fixing this soon )
+Add some CSS. The width of the slider can be whatever you want, its responsive!
 
 
 ```
@@ -33,7 +33,6 @@ Add some CSS. The width of the slider can be whatever you want, its responsive! 
 
  .slide {
      width: 100%;
-     height: 600px;
      float: left;
  }
 ```
