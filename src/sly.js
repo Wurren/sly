@@ -16,14 +16,6 @@
           }
      };
 
-     var PrefixedEvent = function(element, type, callback) {
-          var pfx = ["webkit", "moz", "MS", "o", ""];
-          for (var p = 0; p < pfx.length; p++) {
-               if (!pfx[p]) type = type.toLowerCase();
-               element.addEventListener(pfx[p]+type, callback, false);
-          }
-     }
-
      var Sly = function(el, options) {
           this.options = {
                bullets: options.bullets || false,
