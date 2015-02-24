@@ -36,7 +36,6 @@
 .item {
      // This stuff too!
      width: 100%;
-     height: 600px;
      float: left;
      // everything else under is just for the example
      background-color: #f9f9f9;
@@ -57,6 +56,19 @@
      }
 }
 
+// Example of how the slider reacts to media queries
+@media( min-width: 1px ) {
+     #slider {
+          height: 300px;
+     }
+}
+
+@media( min-width: 980px ) {
+     #slider {
+          height: 600px;
+     }
+}
+
 /*
 |--------------------------------------------------------------------------
 | Captions, Navigation + Previous/Next Slide
@@ -70,7 +82,7 @@
      color: #fff;
 }
 
-.slide-navigation {
+#slide-navigation {
      display: inline-block;
      padding: 30px 0;
      a {
