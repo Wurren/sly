@@ -95,7 +95,7 @@
                this.children.forEach(function(item, index) {
 
                     var bullet = document.createElement('a');
-                    var nav    = document.getElementsByClassName(that.options.bullets)[0];
+                    var nav    = document.getElementsById(that.options.bullets);
 
                     bullet.href = '#' + (index++);
                     bullet.innerHTML = (index++);
