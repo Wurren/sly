@@ -24,7 +24,11 @@
           }
      }
 
-     var Sly = function(el) {
+     var Sly = function(el, options) {
+          this.options = {
+               bullets: options.bullets || false,
+               speed: options.speed  || '0.5s'
+          }
           this.el = document.getElementById(el);
           this.children = this.getChildren();
           this.wrap = this.createWrap();
@@ -48,8 +52,9 @@
                this.children.forEach(function(item, index) {
                     that.el.removeChild(item);
                     that.wrap.appendChild(item);
-                    that.createNav(item, index);
                });
+
+               if(this.options.bullets) this.createNav();
 
                this.el.appendChild(this.wrap);
 
@@ -100,15 +105,21 @@
 
           createNav: function(item, index) {
 
-               var bullet = document.createElement('a');
-               var nav    = document.getElementsByClassName('slide-navigation')[0];
+               var that = this;
 
-               bullet.href = '#' + (index++);
-               bullet.innerHTML = (index++);
+               this.children.forEach(function(item, index) {
 
-               addEventListener(bullet, 'click', this.navigate, this);
+                    var bullet = document.createElement('a');
+                    var nav    = document.getElementsByClassName(that.options.bullets)[0];
 
-               nav.appendChild(bullet);
+                    bullet.href = '#' + (index++);
+                    bullet.innerHTML = (index++);
+
+                    addEventListener(bullet, 'click', that.navigate, that);
+
+                    nav.appendChild(bullet);
+
+               });
 
           },
 
@@ -170,7 +181,7 @@
 
                var  wrapper   = document.createElement('div'),
                     s         = wrapper.style,
-                    anim      = 'all 1s ease';
+                    anim      = 'all ' + this.options.speed + ' ease';
                
                s.backgroundColor = '#000';
                s.position = 'absolute';

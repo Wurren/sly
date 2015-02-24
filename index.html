@@ -43,7 +43,9 @@
 <script>
 
      // Its not here, but, always remember to have your DOM ready!
-     var sly = new Sly('slider');
+     var sly = new Sly('slider', {
+          bullets: 'slide-navigation'
+     });
 
      document.getElementById('next').addEventListener('click', function(e) {
           e.preventDefault();
