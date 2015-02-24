@@ -95,7 +95,7 @@
                this.children.forEach(function(item, index) {
 
                     var bullet = document.createElement('a');
-                    var nav    = document.getElementsById(that.options.bullets);
+                    var nav    = document.getElementById(that.options.bullets);
 
                     bullet.href = '#' + (index++);
                     bullet.innerHTML = (index++);
@@ -113,7 +113,7 @@
                e.preventDefault();
 
                var  num  = parseInt(e.currentTarget.innerHTML, 10),
-                    move = ( num * this.left ) - 800;
+                    move = ( num * this.left ) - this.left;
 
                this.wrap.style.left = '-' + move + 'px';
                this.currentLeft = move;
@@ -121,7 +121,7 @@
 
           },
 
-          setup: function() { 
+          setup: function() {
 
                var that = this;
 
@@ -134,6 +134,7 @@
 
                this.children.forEach(function(item) {
                     item.style.width = that.left + 'px';
+                    item.style.height = that.el.offsetHeight + 'px';
                     length += item.clientWidth;
                });
 
@@ -158,7 +159,7 @@
           },
 
           getNav: function() {
-               return Array.prototype.slice.call(document.getElementsByClassName('slide-navigation')[0].childNodes)
+               return Array.prototype.slice.call(document.getElementById('slide-navigation').childNodes)
           },
 
           createWrap: function() {
@@ -171,6 +172,7 @@
                s.position = 'absolute';
                s.top = 0;
                s.left = 0;
+               s.height = this.el.offsetHeight + 'px'
                s.WebkitTransition = anim;
                s.MozTransition = anim;
                s.transition = anim;
