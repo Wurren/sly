@@ -1,10 +1,10 @@
 # Sly
 
-<img src="http://i.imgur.com/stYq2aH.gif" />
+<div style="text-align:center"><img src="http://i.imgur.com/stYq2aH.gif" /></div>
 
 A tiny, 2k responsive slider using CSS3 built with Javascript. its built with newer ecmascript 6 elements to _keep it tiny_ so its only build for modern browsers (Chrome, Firebox, IE10+).
 
-Ill probably knock together a pollyfilled version, at the expense of filesize.
+There will be pollyfilled version for IE
 
 
 ## Get Started
@@ -46,12 +46,36 @@ Fire her up! Add the ID of your slider into the function
 var sly = new Sly('slider');
 ```
 
+With options
+
+```
+ var sly = new Sly('slider', {
+     bullets: 'slide-navigation', // ID of element to inject bullet nav into, default: false
+     speed: '0.5' // this is the default speed
+ });
+ 
+```
+
+## API methods
+
+For the moment, just some simple Next, Previous controls
+
+```
+sly.next();
+```
+
+```
+sly.prev();
+```
+
+
+
 ## Todo's
 
-1. Options for Speed, Easing
-2. Better support for IE
+1. ~~Options for Speed, Easing~~
+2. ~~Better support for IE~~ Creating a seperate pollyfilled version instead
 3. More API methods
-4. Small File Size
+4. Smaller File Size
 
 ## Development
 
