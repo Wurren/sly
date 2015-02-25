@@ -60,6 +60,23 @@ gulp.task('build', function() {
 });
 
 
+/*
+|--------------------------------------------------------------------------
+| Compile Javascript - Production
+|--------------------------------------------------------------------------
+*/
+
+gulp.task('build:polyfill', function() {
+     return gulp.src(['src/polyfills.js','src/sly.js'])
+          .pipe(plumber({
+               errorHandler: onError
+          }))
+          .pipe(concat('sly.polyfilled.js'))
+          .pipe(rename('sly.polyfilled.min.js'))
+          .pipe(uglify())
+          .pipe(gulp.dest('dist'))
+          .pipe(notify({ message: 'Build - Done!' }))
+});
 
 
 
@@ -71,7 +88,7 @@ gulp.task('build', function() {
 
 gulp.task('watch', function() {
      gulp.watch('less/*.less', ['less']);
-     gulp.watch('src/*.js', ['build']);
+     gulp.watch('src/*.js', ['build', 'build:polyfill']);
 });
 
 
