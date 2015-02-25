@@ -4,7 +4,7 @@
 
 A tiny, 2k responsive slider using CSS3 built with Javascript. its built with newer ecmascript 6 elements to _keep it tiny_ so its only build for modern browsers (Chrome, Firebox, IE10+).
 
-There will be pollyfilled version for IE
+There is also a polyfilled version for IE
 
 
 ## Get Started
@@ -68,11 +68,17 @@ sly.prev();
 ```
 
 
+## Polyfilled Version
+
+There is now a polyfilled version on the `dist` folder that includes polyfills for `forEach`, `filter` and `addEventListener` which fix older browsers with missing features or inconsistencies.
+
+This does not cover the CSS3 animations. At the moment older browsers will slide the images without the animation. In upcoming versions there may either be a fix to fall back to javascript animations or event triggering to allow your own javscript animations.
+
 
 ## Todo's
 
 1. ~~Options for Speed, Easing~~
-2. ~~Better support for IE~~ Creating a seperate pollyfilled version instead
+2. ~~Better support for IE~~ Polyfill version now available
 3. More API methods
 4. Smaller File Size
 
@@ -91,6 +97,11 @@ for compiling LESS to CSS, minifying and saving to /CSS/style.css
 gulp build
 ```
 for compiling /src/sly.js to /dist/sly.min.js
+
+```
+gulp build:polyfill
+```
+for compiling /src/sly.js + /src/polyfills.js to /dist/sly.polyfilled.min.js
 
 ```
 gulp watch
