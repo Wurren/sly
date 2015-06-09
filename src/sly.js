@@ -10,8 +10,10 @@
 
      var Sly = function(el, options) {
           this.options = {
+               auto: options.auto || false,
                bullets: options.bullets || false,
-               speed: options.speed  || '0.5s'
+               speed: options.speed  || '0.5s',
+               easing: options.easing || 'ease'
           }
           this.el = document.getElementById(el);
           this.children = this.getChildren();
@@ -44,7 +46,16 @@
                this.el.appendChild(this.wrap);
 
                this.updateNav();
+
+               if( this.options.auto ) this.auto();
                
+          },
+
+          auto: function() {
+               var that = this;
+               setInterval(function() {
+                    that.move('next');
+               }, this.options.auto);
           },
 
           next: function() {
@@ -159,14 +170,14 @@
           },
 
           getNav: function() {
-               return Array.prototype.slice.call(document.getElementById('slide-navigation').childNodes)
+               return Array.prototype.slice.call(document.getElementById(this.options.bullets).childNodes)
           },
 
           createWrap: function() {
 
                var  wrapper   = document.createElement('div'),
                     s         = wrapper.style,
-                    anim      = 'all ' + this.options.speed + ' ease';
+                    anim      = 'left ' + this.options.speed + ' ' + this.options.easing;
                
                wrapper.className = 'wrapper';
                s.position = 'absolute';
