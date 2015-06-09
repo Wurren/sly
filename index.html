@@ -44,7 +44,9 @@
 
      // Its not here, but, always remember to have your DOM ready!
      var sly = new Sly('slider', {
-          bullets: 'slide-navigation'
+          auto: 4000,
+          bullets: 'slide-navigation',
+          easing: 'cubic-bezier(0.77, 0, 0.175, 1)'
      });
 
      document.getElementById('next').addEventListener('click', function(e) {
