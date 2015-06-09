@@ -49,8 +49,10 @@ With options
 
 ```
  var sly = new Sly('slider', {
-     bullets: 'slide-navigation', // ID of element to inject bullet nav into, default: false
-     speed: '0.5' // this is the default speed
+     bullets: 'slide-navigation', // ID of element to inject bullet nav into - default is false
+     speed: '0.5' // Slide Transition Speed - default speed is 0.5
+     easing: 'cubic-bezier(0.77, 0, 0.175, 1)' // custom CSS easing - defaults to ease
+     auto: 3000 // Autoplay - Takes an interval in milliseconds - defaults to false
  });
  
 ```
